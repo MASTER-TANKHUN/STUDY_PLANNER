@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow - Your Personal Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">My Study Planner</h1>
+            <p class="subtitle">Keep track of your assignments and study goals</p>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2 class="card-title">Add New Task</h2>
+                <form id="taskForm">
+                    <div class="input-group">
+                        <label for="taskTitle">What do you need to study?</label>
+                        <input type="text" id="taskTitle" class="input-field" placeholder="Write your assignment or topic here" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="taskSubject">Subject</label>
+                        <input type="text" id="taskSubject" class="input-field" placeholder="Math, English, Science, etc.">
+                    </div>
+                    <div class="input-group">
+                        <label for="taskDue">When is it due?</label>
+                        <input type="date" id="taskDue" class="input-field">
+                    </div>
+                    <div class="input-group">
+                        <label for="taskPriority">How important is this?</label>
+                        <select id="taskPriority" class="input-field">
+                            <option value="low">Not urgent</option>
+                            <option value="medium" selected>Pretty important</option>
+                            <option value="high">Super urgent!</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Add to my list</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">My Tasks</h2>
+                <div id="taskList" class="task-list">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📝</div>
+                        <p>Nothing here yet! Add your first task to get started.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTasks">0</div>
+                <div class="stat-label">Things to do</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedTasks">0</div>
+                <div class="stat-label">Done</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="pendingTasks">0</div>
+                <div class="stat-label">Still working on</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completionRate">0%</div>
+                <div class="stat-label">Progress</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
