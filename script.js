@@ -1,3 +1,13 @@
+const themeToggle = document.getElementById('themeToggle');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+if(localStorage.getItem('nightMode') === 'true' || (!localStorage.getItem('nightMode') && prefersDark)) {
+    document.body.classList.add('night');
+}
+themeToggle.onclick = function() {
+    document.body.classList.toggle('night');
+    localStorage.setItem('nightMode', document.body.classList.contains('night'));
+};
+
 let tasks = [];
 let taskId = 1;
 
@@ -101,5 +111,18 @@ function formatDate(dateString) {
         day: 'numeric' 
     });
 }
+
+const githubIcon = document.getElementById('githubIcon');
+const setGithubIcon = () => {
+  if(document.body.classList.contains('night')) {
+    githubIcon.src = "/images/github-mark-white.svg";
+  } else {
+    githubIcon.src = "/images/github-mark.svg";
+  }
+};
+setGithubIcon();
+document.getElementById('themeToggle').addEventListener('click', () => {
+  setTimeout(setGithubIcon, 150);
+});
 
 updateStats();
